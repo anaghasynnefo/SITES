@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import place
 
 # Create your views here.
 def index(req):
-    return render(req,'index.html')
+    data=place.objects.all()
+    return render(req,'index.html',{'data':data})
+
 
 
 def contact(req):
